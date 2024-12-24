@@ -51,13 +51,16 @@ inegi_series <- function (series_id, token, geography = "00", database = "BIE",
               "/", database, "/2.0/", 
               token, 
               "?type=json") 
-              
+  
+  ### Sending request            
   req <- request(u) %>%  
          req_options(ssl_verifypeer = FALSE) %>%
          req_perform()
   
-  ### download 
-  s <- resp_body_json(req)
+  ### Formatting to JSON 
+  s <- resp_body_string(req) %>% 
+    jsonlite::fromJSON()
+  
   if (!is.null(s$ErrorInfo)) {
     warning(paste0("INEGI error: ", s$ErrorInfo))
     return(NULL)
