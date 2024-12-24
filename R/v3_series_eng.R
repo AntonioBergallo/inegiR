@@ -50,12 +50,14 @@ inegi_series <- function (series_id, token, geography = "00", database = "BIE",
               ifelse(lastonly, "true", "false"), 
               "/", database, "/2.0/", 
               token, 
-              "?type=json") %>%  
-              req_options(ssl_verifypeer = FALSE) %>%
-              req_perform()
+              "?type=json") 
+              
+  req <- request(u) %>%  
+         req_options(ssl_verifypeer = FALSE) %>%
+         req_perform()
   
   ### download 
-  s <- resp_body_json(u)
+  s <- resp_body_json(req)
   if (!is.null(s$ErrorInfo)) {
     warning(paste0("INEGI error: ", s$ErrorInfo))
     return(NULL)
