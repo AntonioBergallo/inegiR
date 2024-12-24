@@ -4,9 +4,16 @@
 \alias{inegi_series}
 \title{Returns INEGI data series}
 \usage{
-inegi_series(series_id, token, geography = "00", database = "BIE",
-  metadata = FALSE, lastonly = FALSE, as_tt = FALSE,
-  as_compact = FALSE)
+inegi_series(
+  series_id,
+  token,
+  geography = "00",
+  database = "BIE",
+  metadata = FALSE,
+  lastonly = FALSE,
+  as_tt = FALSE,
+  as_compact = FALSE
+)
 }
 \arguments{
 \item{series_id}{an indicator ID. These are obtained via the INEGI API documentation.}

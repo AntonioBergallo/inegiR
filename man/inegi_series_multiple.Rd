@@ -4,8 +4,13 @@
 \alias{inegi_series_multiple}
 \title{Returns multiple INEGI data series}
 \usage{
-inegi_series_multiple(series_id, token, names = NULL, geography = "00",
-  database = "BIE")
+inegi_series_multiple(
+  series_id,
+  token,
+  names = NULL,
+  geography = "00",
+  database = "BIE"
+)
 }
 \arguments{
 \item{series_id}{A vector of indicator ID's. These are obtained via the INEGI API documentation.}
