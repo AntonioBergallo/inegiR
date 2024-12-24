@@ -50,7 +50,7 @@ inegi_series <- function (series_id, token, geography = "00", database = "BIE",
               ifelse(lastonly, "true", "false"), 
               "/", database, "/2.0/", 
               token, 
-              "?type=json") %>%a  
+              "?type=json") %>%  
               req_options(ssl_verifypeer = FALSE) %>%
               req_perform()
   
